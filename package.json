@@ -1,6 +1,6 @@
 {
   "name": "generator-angular-webpack-async",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "基于angular+webpack+lazyload+mock的项目快速生成器",
   "main": "app/index.js",
   "scripts": {

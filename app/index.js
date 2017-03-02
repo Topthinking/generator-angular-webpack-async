@@ -13,8 +13,11 @@ var Reactpackage = yeoman.Base.extend({
     generateBasic: function() {  //按照自己的templates目录自定义
         this.directory('src', 'src');    //拷贝目录
         this.directory('cfg', 'cfg');
+        this.directory('mock', 'mock');
+        this.directory('json_server', 'json_server');
         this.copy('package.json', 'package.json');   //拷贝文件
         this.copy('README.md', 'README.md');
+        this.copy('rewrite.json', 'rewrite.json');
         this.copy('server.js', 'server.js');
         this.copy('webpack.config.js', 'webpack.config.js');
     },
