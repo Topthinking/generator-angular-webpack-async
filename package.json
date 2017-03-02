@@ -1,0 +1,14 @@
+{
+  "name": "generator-angular-webpack-async",
+  "version": "0.0.1",
+  "description": "基于angular+webpack+lazyload+mock的项目快速生成器",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "Topthinking",
+  "license": "MIT"
+}
