@@ -1,11 +1,8 @@
 {
   "name": "generator-angular-webpack-async",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "基于angular+webpack+lazyload+mock的项目快速生成器",
   "main": "app/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Topthinking/generator-angular-webpack-async"
@@ -13,7 +10,11 @@
   "keywords": [
     "yeoman-generator"
   ],
-  "author": "Topthinking",
+  "author": {
+    "name": "Topthinking",
+    "email": "18301866067@163.com",
+    "url": "https://github.com/Topthinking"
+  },
   "license": "MIT",
   "homepage": "https://github.com/Topthinking/generator-angular-webpack-async",
   "dependencies": {
