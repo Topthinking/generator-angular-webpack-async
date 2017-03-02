@@ -8,7 +8,7 @@ class HomeController {
   		this.name = value;
   	 }.bind(this));
 
-    this.title = "这是主页";
+    this.title = "123";
   }
 } 
 

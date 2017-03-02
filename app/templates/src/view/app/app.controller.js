@@ -1,14 +1,31 @@
 'use strict';
 
 class AppController {
-	constructor($rootScope,$scope,$state,AccessService){
-		AccessService.getAccess().then(function(response){
+	constructor($scope,$rootScope,$state,$http){
+		$http({
+			url:'http://183.131.78.204:7000/aj/user/login',
+			method:'POST',
+			headers:{
+				'Content-Type':'application/x-www-form-urlencoded'
+			},
+			data:$.param({
+				user_name:"123",
+				password:"123"
+			})
+		}).then(function(response){
 			if(response.data.status){
-				console.log('1');
+				console.log(response.data.msg);
 			}else{
-				$state.go('login');
+				console.log(response.data.msg);
 			}
 		});
+
+		if(typeof $rootScope.login_state == "undefined" || $rootScope.login_state==0){
+			//$state.go('login');
+			//return false;
+		}else{
+			this.name = $rootScope.user_name;
+		}
 		
 		this.$scope = $scope;
 		require('./app.less');

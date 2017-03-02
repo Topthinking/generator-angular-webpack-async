@@ -6,19 +6,10 @@ function ViewRouter($urlRouterProvider,$qProvider) {
 }
 
 export default angular
-  .module('view.router',(()=>{
-  	let router_list=[];
-  	[
-      'app',
-      'login',
-      'home',
-      'home.edit',
-    ].forEach((value)=>{
-  		router_list.push(require('./'+value+'/_router').name);
-  	});
-  	return router_list;
-  })())
-  .value("url_param",{
-    "login":"/access/login/"
-  })
+  .module('view.router', [
+  		require('./app/_router.js').name,
+      	require('./login/_router.js').name,
+      	require('./home/_router.js').name,
+      	require('./home.edit/_router.js').name
+    ])
   .config(ViewRouter);

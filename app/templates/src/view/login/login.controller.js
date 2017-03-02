@@ -1,14 +1,11 @@
 'use strict';
 
 class LoginController{
-	constructor($state,$rootScope,AccessService){
-		AccessService.getAccess().then(function(response){
-			if(response.data.status){
-				$state.go('app.home');
-			}else{
-				$state.go('login');
-			}
-		});
+	constructor($state,$rootScope){
+		if(typeof $rootScope.login_state != "undefined" && $rootScope.login_state==1){
+			$state.go('app.home');
+			return false;
+		}
 		this.$rootScope = $rootScope;
 		this.$state = $state;
 		require('./login.less');
