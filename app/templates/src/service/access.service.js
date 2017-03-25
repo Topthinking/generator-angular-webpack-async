@@ -9,16 +9,26 @@ class AccessService{
 
  	getAccess() {
  		return this.$http({
-			url:this.url_param.login,
+			url:this.url_param.user_state,
 			method:'POST',
 			headers:{
 				'Content-Type':'application/x-www-form-urlencoded'
+			}
+		});
+  	}
+
+  	login(user_name,password){
+  		return this.$http({
+  			url:this.url_param.login,
+  			method:'POST',
+  			headers:{
+				'Content-Type':'application/x-www-form-urlencoded'
 			},
 			data:$.param({
-				user_name:"18301866067",
-				password:"123"
+				user_name:user_name,
+				password:password
 			})
-		});
+  		});
   	}
 }
 

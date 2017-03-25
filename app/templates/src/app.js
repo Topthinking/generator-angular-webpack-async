@@ -1,17 +1,16 @@
 'use strict';
-
 import angular from 'angular';
-import myHeader from './view/common/header.html';
-import myFooter from './view/common/footer.html';
 
 let AppModule = 'app';
 
+
 angular.module(AppModule, [
-    require('angular-ui-router'),
     require('oclazyload'),
-    require('angular-animate'),
+    require('angular-ui-router'),
+    require('./common/lib/angular-toastr/index'),
+    require('./common/lib/angular-bootstrap/index'),
+    (()=>{require('angular-file-upload');return 'angularFileUpload';})(),
+    require('./service/access.service').name,
     require('./view/_router').name
-  ])
-	.component('myHeader', {template: myHeader})
-	.component('myFooter', {template: myFooter});
+  ]);
 angular.bootstrap(document, [AppModule], { strictDi: true });

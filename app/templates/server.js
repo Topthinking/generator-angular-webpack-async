@@ -14,16 +14,18 @@ let config = {
       "font-awesome-webpack",
       "bootstrap-loader",
       "angular", 
-      'angular-ui-router', 
+      'angular-ui-router',
       'oclazyload',
-      'angular-animate'
+      './src/common/lib/angular-toastr/index',
+      './src/common/lib/angular-bootstrap/index',
+      'angular-file-upload'
     ]
   },
   output:{
     path:__dirname+'/dist/',
     filename: "script/[name].[hash:6].js",
     jsonpFunction:'Topthinking',
-    chunkFilename: "chunks/[name].[chunkhash:6].js"
+    chunkFilename: "script/[name].[chunkhash:6].js"
   },
   devServer:{
     historyApiFallback:true,
@@ -45,6 +47,7 @@ let config = {
   plugins: [
     new htmlWebpackPlugin({
       chunks: ['app', 'vendor'],
+      favicon:'./src/favicon.ico',
       template:'./src/app.html',
       filename:'index.html',
       inject:'body',

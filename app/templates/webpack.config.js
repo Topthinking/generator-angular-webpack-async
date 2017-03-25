@@ -2,7 +2,11 @@
 
 let htmlWebpackPlugin = require('html-webpack-plugin');
 let webpack = require('webpack');
+let CleanPlugin = require('clean-webpack-plugin');
 let defaultSettings = require('./cfg/defaults');
+let path = require('path');
+let fs = require('fs');
+
 
 let config = {
   entry:{
@@ -12,16 +16,19 @@ let config = {
       "font-awesome-webpack",
       "bootstrap-loader",
       "angular", 
-      'angular-ui-router', 
+      'angular-ui-router',
       'oclazyload',
-      'angular-animate'
+      './src/common/lib/angular-toastr/index',
+      './src/common/lib/angular-bootstrap/index',
+      'angular-file-upload'
     ]
   },
   output:{
-    path:__dirname+'/dist/',
+    path:'../uol-dist/static/',
     filename: "script/[name].[hash:6].js",
     jsonpFunction:'Topthinking',
-    chunkFilename: "chunks/[name].[chunkhash:6].js"
+    publicPath:"/static/",
+    chunkFilename: "script/[name].[chunkhash:6].js"
   },
   resolve:{
     root:__dirname+'./src/'
@@ -36,6 +43,7 @@ let config = {
     }),
     new htmlWebpackPlugin({
       chunks: ['app', 'vendor'],
+      favicon:'./src/favicon.ico',
       template:'./src/app.html',
       filename:'index.html',
       inject:'body',
@@ -56,4 +64,20 @@ let config = {
   module: defaultSettings.getDefaultModules()
 };
 
+var deleteFolder = function(path) {
+    var files = [];
+    if( fs.existsSync(path) ) {
+        files = fs.readdirSync(path);
+        files.forEach(function(file,index){
+            var curPath = path + "/" + file;
+            if(fs.statSync(curPath).isDirectory()) { // recurse
+                deleteFolder(curPath);
+            } else { // delete file
+                fs.unlinkSync(curPath);
+            }
+        });
+        fs.rmdirSync(path);
+    }
+};
+deleteFolder('../uol-dist/static/');
 module.exports = config;

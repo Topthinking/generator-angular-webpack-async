@@ -10,7 +10,7 @@ function AppRouter($stateProvider) {
         require.ensure([],()=>{
             let template = require('./app.html');
             deferred.resolve(template);
-        },'app-tpl');
+        },'app.tpl');
         return deferred.promise;
       },
       controller:'AppController as vm',
@@ -21,7 +21,7 @@ function AppRouter($stateProvider) {
               let module = require('./app.controller');
               $ocLazyLoad.load({name:module.name});
               resolve(module.controller);
-            },'app-ctrl');
+            },'app.ctrl');
           });
         }
       }
