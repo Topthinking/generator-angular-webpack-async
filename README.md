@@ -1,12 +1,14 @@
 # 快速搭建angular单页面应用
 
-## 使用
+ ## 运行（nodejs 6.0+）
 ```
   cd angular-webpack-async
   npm install yeoman
   npm install generator-angular-webpack-async
-  yo
-  选择构建angular-webpack-async项目
+  yo angular-webpack-async
+  npm install
+  npm run dev
+  访问 http://localhost:9123
 ```
 ## 说明
 
